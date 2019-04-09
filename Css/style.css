@@ -1,0 +1,88 @@
+/*
+
+orange = #F39C12
+
+*/
+
+body {
+	margin: 0px;
+	background-image: url("../Image/site/background.jpg");
+}
+
+/* header */
+
+#header {
+	width: 100%;
+	height: 75px;
+	border-top: 5px solid #F39C12;
+	background-color: black;
+}
+
+#header #header1 {
+	width: 800px;
+	height: 75px;
+	margin: 0 auto;
+}
+
+#header #header1 #logo {
+	height: 70px;
+	margin-top: 2.5px;
+	float: left;
+}
+
+#header #header1 #logo img {
+	height: 100%;
+}
+
+#header #header1 #logo img:hover {
+	opacity: 0.8;
+}
+
+#header #header1 #title {
+	color: white;
+	line-height: 35px;
+	margin-left: 15px;
+	float: left;
+}
+
+#header #header1 #title a {
+	text-decoration: none;
+	color: white;
+}
+
+#header #header1 #title a:hover {
+	opacity: 0.8;
+}
+
+#header #header1 #menu {
+	width: 200px;
+	height: 75px;
+	float: right;
+}
+
+#header #header1 #menu table {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+
+#header #header1 #menu table a {
+	text-decoration: none;
+	font-size: 20px;
+	color: white;
+}
+
+#header #header1 #menu table a:hover {
+	color: #F39C12;
+	font-size: 23px;
+}
+
+/* container */
+
+#container {
+	width: 800px;
+	height: 600px;
+	background: rgba(25, 25, 25, .5);
+	margin: 0 auto;
+}
+
