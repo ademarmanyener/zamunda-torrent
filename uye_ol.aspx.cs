@@ -32,10 +32,9 @@ public partial class kayit_ol : System.Web.UI.Page
         }
         if (control == 't')
         {
-            OleDbCommand cmdRegister = new OleDbCommand("insert into kullanicilar values(@p1,@p2,@p3)",cnn);
+            OleDbCommand cmdRegister = new OleDbCommand("insert into kullanicilar values(@p1,@p2,'none',now,'normal')", cnn);
             cmdRegister.Parameters.AddWithValue("@p1", TextBox1.Text);
             cmdRegister.Parameters.AddWithValue("@p2", TextBox2.Text);
-            cmdRegister.Parameters.AddWithValue("@p3", "normal");
             cmdRegister.ExecuteNonQuery();
             Label1.ForeColor = System.Drawing.Color.Lime;
             Label1.Text = "Başarıyla kayıt oldunuz!";

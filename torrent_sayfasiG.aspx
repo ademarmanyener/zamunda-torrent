@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="torrent_sayfasi.aspx.cs" Inherits="torrent_sayfasi" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="torrent_sayfasiG.aspx.cs" Inherits="torrent_sayfasi" %>
 
 <!DOCTYPE html>
 
@@ -13,14 +13,26 @@
     <form id="form1" runat="server">
 	<div id="header">
 		<div id="header1">
-			<div id="logo"><a href="index.aspx"><img src="Image/site/logo.jpg"></a></div>
-			<div id="title"><h3><a href="index.aspx">Zamunda Torrent</a></h3></div>
+			<div id="logo"><a href="indexG.aspx"><img src="Image/site/logo.jpg"></a></div>
+			<div id="title"><h3><a href="indexG.aspx">Zamunda Torrent</a></h3></div>
 			<div id="menu">
 				<table>
 					<tr>
-						<td><a href="giris_yap.aspx"><img src="Image/site/giris_yap.png"></a></td>
-						<td><a href="uye_ol.aspx"><img src="Image/site/uye_ol.png"></a></td>
+						<td>
+                            <asp:Image ID="Image1" runat="server" Height="42px" Width="44px" />
+                        </td>
+                        <td>
+                            <asp:Label ID="Label2" runat="server" ForeColor="White" Text="Label"></asp:Label>
+                        </td>
 					</tr>
+                    <tr>
+                        <td>
+                            <asp:Button ID="Button1" runat="server" CssClass="button2" Text="Profilim" OnClick="Button1_Click" />
+                        </td>
+                        <td>
+                            <asp:Button ID="Button2" runat="server" CssClass="button2" Text="Çıkış Yap" OnClick="Button2_Click" />
+                        </td>
+                    </tr>
 				</table>
 			</div>
 		</div>

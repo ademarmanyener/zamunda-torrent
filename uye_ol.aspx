@@ -53,7 +53,7 @@
                 <td class="auto-style1">&nbsp;</td>
                 <td class="auto-style2">&nbsp;</td>
                 <td>
-                    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Kayıt Ol" />
+                    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" CssClass="button1" Text="Üye Ol" />
                     <asp:Label ID="Label1" runat="server"></asp:Label>
                 </td>
             </tr>

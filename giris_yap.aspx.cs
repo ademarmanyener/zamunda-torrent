@@ -25,8 +25,10 @@ public partial class kayit_ol : System.Web.UI.Page
         {
             if (TextBox1.Text==reader["kullanici_adi"].ToString() && TextBox2.Text==reader["sifre"].ToString())
             {
+                Session["kullanici_adi"] = TextBox1.Text;
                 control = 't';
-                Response.Redirect("indexG.aspx?kullanici_adi="+reader["kullanici_adi"].ToString());
+                Response.Redirect("indexG.aspx");
+                //Response.Redirect("indexG.aspx?kullanici_adi="+reader["kullanici_adi"].ToString());
                 //Label1.ForeColor = System.Drawing.Color.Lime;
                 //Label1.Text = "Giriş başarılı.";
             }

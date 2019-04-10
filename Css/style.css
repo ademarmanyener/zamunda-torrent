@@ -96,3 +96,38 @@ body {
     border: 2px solid black;
 }
 
+
+
+
+
+
+
+/*
+
+    buttonlar
+
+*/
+
+.button1 {
+    width: 100px;
+    height: 30px;
+    border: 0px;
+    color: white;
+    background-color: #F39C12;
+    border-bottom: 3px solid #b75c00;
+}
+
+.button1:hover {
+    cursor: pointer;
+}
+
+.button2 {
+    border: 0px;
+    color: white;
+    background-color: deepskyblue;
+    border-bottom: 3px solid dodgerblue;
+}
+
+.button2:hover {
+    cursor: pointer;
+}

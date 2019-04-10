@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="indexG.aspx.cs" Inherits="index" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="torrent_silG.aspx.cs" Inherits="index" %>
 
 <!DOCTYPE html>
 
@@ -49,28 +49,25 @@
 			</div>
 		</div>
 	</div>
-	<div id="container" >      
-	    <asp:DataList ID="DataList1" runat="server" RepeatColumns="3" RepeatDirection="Horizontal">
-            <ItemTemplate>
-                <table style="width:100%;">
-                    <tr>
-                        <td>
-                            <asp:ImageButton ID="ImageButton1" ImageUrl='<%# "Image/torrent/"+Eval("torrent_resmi").ToString() %>' PostBackUrl='<%# "~/torrent_sayfasiG.aspx?torrent_id="+Eval("torrent_id").ToString() %>' runat="server" Height="290px" Width="249px" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <asp:Label ID="Label1" style="font-size: 20px;" runat="server" Text='<%# Eval("torrent_adi").ToString() %>'></asp:Label>
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <hr />
-                        </td>
-                    </tr>
-                </table>
-            </ItemTemplate>
-        </asp:DataList>
+	<div id="container" >
+        <table style="width: 100%; height: 100%; background-color: black; color: white; padding-bottom: 5px; padding-left: 5px; margin-bottom: 25px;">
+            <tr>
+                <td style="text-align: center;" colspan="2">= Torrent Sil =</td>
+            </tr>
+            <tr>
+                <td class="auto-style2">Torrent ID: </td>
+                <td>
+                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style3">&nbsp;</td>
+                <td class="auto-style4">
+                    <asp:Button ID="Button3" CssClass="button2" runat="server" Text="Sil" OnClick="Button3_Click" />                    
+                    <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+                </td>
+            </tr>            
+        </table>
 	</div>
     </form>
 </body>
