@@ -24,11 +24,20 @@
 				<table>
 					<tr>
 						<td>
-                            <asp:Label ID="Label5" runat="server" ForeColor="White" Text="Label"></asp:Label>
-                            <asp:Button ID="Button1" runat="server" CssClass="button2" Text="Anasayfa" OnClick="Button1_Click" />
-                            <asp:Button ID="Button2" runat="server" CssClass="button2" Text="Çıkış Yap" OnClick="Button2_Click" />
+                            <asp:Image ID="Image2" runat="server" Height="42px" Width="44px" />
+                        </td>
+                        <td>
+                            <asp:Label ID="Label2" runat="server" ForeColor="White" Text="Label"></asp:Label>
                         </td>
 					</tr>
+                    <tr>
+                        <td>
+                            <asp:Button ID="Button1" runat="server" Text="Anasayfa" CssClass="button2" OnClick="Button1_Click" />
+                        </td>
+                        <td>
+                            <asp:Button ID="Button2" runat="server" Text="Çıkış Yap" CssClass="button2" OnClick="Button2_Click" />
+                        </td>
+                    </tr>
 				</table>
 			</div>
 		</div>
@@ -67,6 +76,9 @@
                         <td class="auto-style2">
                             <asp:Label ID="Label6" runat="server" Text="Avatar Yükle: "></asp:Label>
                             <asp:FileUpload ID="FileUpload1" runat="server" />
+                            <asp:Button CssClass="button2" ID="Button6" runat="server" Text="Sil" OnClick="Button6_Click" style="height: 25px" />
+                            <asp:Button CssClass="button2" ID="Button5" runat="server" Text="Yükle" OnClick="Button5_Click" />
+                            <asp:Label ID="Label7" runat="server"></asp:Label>
                         </td>
                         <td>&nbsp;</td>
                         <td>&nbsp;</td>

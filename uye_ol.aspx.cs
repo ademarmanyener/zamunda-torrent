@@ -32,7 +32,7 @@ public partial class kayit_ol : System.Web.UI.Page
         }
         if (control == 't')
         {
-            OleDbCommand cmdRegister = new OleDbCommand("insert into kullanicilar values(@p1,@p2,'none',now,'normal')", cnn);
+            OleDbCommand cmdRegister = new OleDbCommand("insert into kullanicilar values(@p1,@p2,'none.jpg',now,'normal')", cnn);
             cmdRegister.Parameters.AddWithValue("@p1", TextBox1.Text);
             cmdRegister.Parameters.AddWithValue("@p2", TextBox2.Text);
             cmdRegister.ExecuteNonQuery();

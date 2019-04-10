@@ -21,7 +21,14 @@ public partial class torrent_sayfasi : System.Web.UI.Page
         while (reader2.Read())
         {
             Label2.Text = "Hoşgeldiniz sayın "+Session["kullanici_adi"].ToString()+".";
-            Image1.ImageUrl = "~/Image/avatar/" + reader2["avatar"].ToString();
+            if (reader2["avatar"].ToString() == "none.jpg")
+            {
+                Image1.ImageUrl = "~/Image/site/logo.jpg";
+            }
+            else
+            {
+                Image1.ImageUrl = "~/Image/avatar/" + reader2["avatar"].ToString();
+            }
         }
         cnn.Close();
     }

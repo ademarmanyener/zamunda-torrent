@@ -47,6 +47,7 @@
                     </tr>
 				</table>
 			</div>
+		    <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Button" />
 		</div>
 	</div>
 	<div id="container" >      
