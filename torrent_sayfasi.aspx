@@ -15,6 +15,15 @@
 		<div id="header1">
 			<div id="logo"><a href="index.aspx"><img src="Image/site/logo.jpg"></a></div>
 			<div id="title"><h3><a href="index.aspx">Zamunda Torrent</a></h3></div>
+            <div id="category">
+                <table>
+                    <tr>
+                        <td>
+                            <asp:Button CssClass="button1" ID="Button1" runat="server" Text="Anasayfa" OnClick="Button1_Click" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
 			<div id="menu">
 				<table>
 					<tr>
@@ -25,7 +34,7 @@
 			</div>
 		</div>
 	</div>
-    <div id="container" style="background-color: white; border: 2px solid black; font-size: 25px;">
+    <div id="container" style="background-color: white; border: 1px solid black; font-size: 25px;">
         <asp:DataList ID="DataList1" style="margin: 0px;" runat="server" OnSelectedIndexChanged="DataList1_SelectedIndexChanged">
             <ItemTemplate>
                 <table style="width:100%;">
@@ -61,7 +70,21 @@
                     </tr>
                     <tr>
                         <td>
-                            <asp:LinkButton ID="LinkButton1" style="margin-left: 225px;" runat="server" OnClick="LinkButton1_Click">İndirmek için tıklayın.</asp:LinkButton>
+                            <asp:LinkButton CssClass="linkButton1" ID="LinkButton1" style="margin-left: 225px;" runat="server" OnClick="LinkButton1_Click">İndirmek için tıklayın.</asp:LinkButton>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <asp:Image BorderStyle="Dotted" BorderColor="Orange" ID="Image5" runat="server" ImageUrl='<%# "~/Image/avatar/"+Eval("torrent_ekleyen_kisi").ToString()+".jpg" %>' Height="175px" Width="188px" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Label ID="Label3" runat="server" Text='<%# "Ekleyen kişi: "+ Eval("torrent_ekleyen_kisi").ToString() %>'></asp:Label>
                         </td>
                     </tr>
                 </table>

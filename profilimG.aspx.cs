@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Data.OleDb;
 using System.IO;
 
@@ -23,8 +18,8 @@ public partial class index : System.Web.UI.Page
             Label4.Text = "Üye Olma Tarihiniz: " + reader["uye_olma_tarihi"].ToString();
             if (reader["avatar"].ToString() == "none.jpg")
             {
-                Image1.ImageUrl = "~/Image/site/logo.jpg";
-                Image2.ImageUrl = "~/Image/site/logo.jpg";
+                //Image1.ImageUrl = "~/Image/site/logo.jpg";
+                //Image2.ImageUrl = "~/Image/site/logo.jpg";
             }
             else
             {
@@ -116,5 +111,11 @@ public partial class index : System.Web.UI.Page
             Label7.ForeColor = System.Drawing.Color.Red;
             Label7.Text = "Önce bir resim seçmelisiniz!";
         }
+    }
+
+    // anasayfa
+    protected void Button7_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("indexG.aspx");
     }
 }

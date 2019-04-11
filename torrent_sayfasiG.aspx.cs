@@ -53,13 +53,21 @@ public partial class torrent_sayfasi : System.Web.UI.Page
 
     }
 
+    // profilim
     protected void Button1_Click(object sender, EventArgs e)
     {
         Response.Redirect("profilimG.aspx");
     }
 
+    // çıkış yap
     protected void Button2_Click(object sender, EventArgs e)
     {
         Response.Redirect("index.aspx");
+    }
+
+    // anasayfa
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("indexG.aspx");
     }
 }

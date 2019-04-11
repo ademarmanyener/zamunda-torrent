@@ -81,13 +81,13 @@
             <tr>
                 <td class="auto-style2">Torrent Resmi: </td>
                 <td>
-                    <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+                    <asp:FileUpload ID="FileUpload1" runat="server" />
                 </td>
             </tr>
             <tr>
                 <td class="auto-style2">Torrent Dosyası: </td>
                 <td>
-                    <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+                    <asp:FileUpload ID="FileUpload2" runat="server" />
                 </td>
             </tr>
             <tr>

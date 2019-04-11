@@ -8,25 +8,28 @@
 	<title>Zamunda Torrent - Oyun, dizi, film...</title>
 	<link rel="shortcut icon" href="Image/site/logo.jpg">
 	<link rel="stylesheet" type="text/css" href="Css/style.css">
-    <style type="text/css">
-        .auto-style2 {
-            width: 200px;
-        }
-        .auto-style3 {
-            width: 200px;
-            height: 29px;
-        }
-        .auto-style4 {
-            height: 29px;
-        }
-    </style>
-</head>
+    </head>
 <body>
     <form id="form1" runat="server">
 	<div id="header">
 		<div id="header1">
 			<div id="logo"><a href="indexG.aspx"><img src="Image/site/logo.jpg"></a></div>
 			<div id="title"><h3><a href="indexG.aspx">Zamunda Torrent</a></h3></div>
+            <div id="category">
+                <table>
+                    <tr>
+                        <td>
+                            <asp:Button CssClass="button1" ID="Button3" runat="server" Text="Oyun" OnClick="Button3_Click1" />
+                        </td>
+                        <td>
+                            <asp:Button CssClass="button1" ID="Button4" runat="server" Text="Dizi" OnClick="Button4_Click1" />
+                        </td>
+                        <td>
+                            <asp:Button CssClass="button1" ID="Button5" runat="server" Text="Film" OnClick="Button5_Click" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
 			<div id="menu">
 				<table>
 					<tr>
@@ -47,7 +50,6 @@
                     </tr>
 				</table>
 			</div>
-		    <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Button" />
 		</div>
 	</div>
 	<div id="container" >      

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.OleDb;
+using System.IO;
 
 public partial class index : System.Web.UI.Page
 {
@@ -47,7 +48,7 @@ public partial class index : System.Web.UI.Page
 
     }
 
-    // ekle
+    // sil
     protected void Button3_Click(object sender, EventArgs e)
     {
         char control = 'f';
@@ -62,6 +63,8 @@ public partial class index : System.Web.UI.Page
                 if (reader["torrent_ekleyen_kisi"].ToString() == Session["kullanici_adi"].ToString())
                 {
                     control = 't';
+                    File.Delete(Server.MapPath("~/Image/torrent/") + reader["torrent_resmi"].ToString());
+                    File.Delete(Server.MapPath("~/File/torrent/") + reader["torrent_dosyasi"].ToString());
                     OleDbCommand cmdDelete = new OleDbCommand("delete from torrentler where torrent_id=@p1",cnn);
                     cmdDelete.Parameters.AddWithValue("@p1",TextBox1.Text);
                     cmdDelete.ExecuteNonQuery();

@@ -38,4 +38,10 @@ public partial class torrent_sayfasi : System.Web.UI.Page
     {
 
     }
+
+    // anasayfa
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("index.aspx");
+    }
 }

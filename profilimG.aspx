@@ -20,6 +20,15 @@
 		<div id="header1">
 			<div id="logo"><a href="indexG.aspx"><img src="Image/site/logo.jpg"></a></div>
 			<div id="title"><h3><a href="indexG.aspx">Zamunda Torrent</a></h3></div>
+            <div id="category">
+                <table>
+                    <tr>
+                        <td>
+                            <asp:Button CssClass="button1" ID="Button7" runat="server" OnClick="Button7_Click" Text="Anasayfa" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
 			<div id="menu">
 				<table>
 					<tr>
@@ -58,7 +67,7 @@
                 <table style="width:100%;">
                     <tr>
                         <td class="auto-style2" rowspan="2">
-                            <asp:Image ID="Image1" runat="server" Height="314px" Width="313px" />
+                            <asp:Image BorderStyle="Ridge" BorderColor="Orange" ID="Image1" runat="server" Height="314px" Width="313px" />
                         </td>
                         <td>
                             <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
@@ -75,7 +84,7 @@
                     <tr>
                         <td class="auto-style2">
                             <asp:Label ID="Label6" runat="server" Text="Avatar Yükle: "></asp:Label>
-                            <asp:FileUpload ID="FileUpload1" runat="server" />
+                            <asp:FileUpload ID="FileUpload1" runat="server" style="width: 203px" />
                             <asp:Button CssClass="button2" ID="Button6" runat="server" Text="Sil" OnClick="Button6_Click" style="height: 25px" />
                             <asp:Button CssClass="button2" ID="Button5" runat="server" Text="Yükle" OnClick="Button5_Click" />
                             <asp:Label ID="Label7" runat="server"></asp:Label>
