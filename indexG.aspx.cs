@@ -90,4 +90,16 @@ public partial class index : System.Web.UI.Page
         DataList1.DataBind();
         cnn.Close();
     }
+
+    // benim eklediklerim
+    protected void Button6_Click(object sender, EventArgs e)
+    {
+        OleDbConnection cnn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Server.MapPath("~/App_Data/db.accdb"));
+        cnn.Open();
+        OleDbCommand cmd = new OleDbCommand("select * from torrentler where torrent_ekleyen_kisi='"+Session["kullanici_adi"].ToString()+"'",cnn);
+        OleDbDataReader reader = cmd.ExecuteReader();
+        DataList1.DataSource = reader;
+        DataList1.DataBind();
+        cnn.Close();
+    }
 }

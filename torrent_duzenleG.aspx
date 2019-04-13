@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="torrent_ekleG.aspx.cs" Inherits="index" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="torrent_duzenleG.aspx.cs" Inherits="index" %>
 
 <!DOCTYPE html>
 
@@ -18,6 +18,13 @@
         }
         .auto-style4 {
             height: 29px;
+        }
+        .auto-style5 {
+            width: 200px;
+            height: 25px;
+        }
+        .auto-style6 {
+            height: 25px;
         }
     </style>
 </head>
@@ -52,7 +59,7 @@
 	<div id="container" >
         <table style="width: 100%; height: 100%; background-color: black; color: white; padding-bottom: 5px; padding-left: 5px; margin-bottom: 25px;">
             <tr>
-                <td style="text-align: center;" colspan="2">= Torrent Ekle =</td>
+                <td style="text-align: center;" colspan="2">= Torrent Düzenle =</td>
             </tr>
             <tr>
                 <td class="auto-style2">Torrent ID: </td>
@@ -83,8 +90,8 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style2">Torrent Resmi: </td>
-                <td>
+                <td class="auto-style5">Torrent Resmi: </td>
+                <td class="auto-style6">
                     <asp:FileUpload ID="FileUpload1" runat="server" />
                 </td>
             </tr>
@@ -97,7 +104,7 @@
             <tr>
                 <td class="auto-style3">&nbsp;</td>
                 <td class="auto-style4">
-                    <asp:Button ID="Button3" CssClass="button2" runat="server" Text="Ekle" OnClick="Button3_Click" />                    
+                    <asp:Button ID="Button3" CssClass="button2" runat="server" Text="Düzenle" OnClick="Button3_Click" />                    
                     <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
                 </td>
             </tr>            

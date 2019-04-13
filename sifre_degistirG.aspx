@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="torrent_ekleG.aspx.cs" Inherits="index" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="sifre_degistirG.aspx.cs" Inherits="index" %>
 
 <!DOCTYPE html>
 
@@ -18,6 +18,13 @@
         }
         .auto-style4 {
             height: 29px;
+        }
+        .auto-style5 {
+            width: 200px;
+            height: 26px;
+        }
+        .auto-style6 {
+            height: 26px;
         }
     </style>
 </head>
@@ -52,52 +59,30 @@
 	<div id="container" >
         <table style="width: 100%; height: 100%; background-color: black; color: white; padding-bottom: 5px; padding-left: 5px; margin-bottom: 25px;">
             <tr>
-                <td style="text-align: center;" colspan="2">= Torrent Ekle =</td>
+                <td style="text-align: center;" colspan="2">= Şifremi Değiştir =</td>
             </tr>
             <tr>
-                <td class="auto-style2">Torrent ID: </td>
+                <td class="auto-style2">Mevcut Şifre:</td>
                 <td>
-                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBox1" runat="server" TextMode="Password"></asp:TextBox>
                 </td>
             </tr>
             <tr>
-                <td class="auto-style2">Torrent Adı: </td>
+                <td class="auto-style2">Yeni Şifre: </td>
                 <td>
-                    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBox2" runat="server" TextMode="Password"></asp:TextBox>
                 </td>
             </tr>
             <tr>
-                <td class="auto-style2">Torrent Bilgisi: </td>
+                <td class="auto-style2">Yeni Şifre Tekrar: </td>
                 <td>
-                    <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style2">Torrent Türü: </td>
-                <td>
-                    <asp:DropDownList ID="DropDownList1" runat="server" Width="129px">
-                        <asp:ListItem>Oyun</asp:ListItem>
-                        <asp:ListItem>Dizi</asp:ListItem>
-                        <asp:ListItem>Film</asp:ListItem>
-                    </asp:DropDownList>
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style2">Torrent Resmi: </td>
-                <td>
-                    <asp:FileUpload ID="FileUpload1" runat="server" />
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style2">Torrent Dosyası: </td>
-                <td>
-                    <asp:FileUpload ID="FileUpload2" runat="server" />
+                    <asp:TextBox ID="TextBox3" runat="server" TextMode="Password"></asp:TextBox>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style3">&nbsp;</td>
                 <td class="auto-style4">
-                    <asp:Button ID="Button3" CssClass="button2" runat="server" Text="Ekle" OnClick="Button3_Click" />                    
+                    <asp:Button ID="Button3" CssClass="button2" runat="server" Text="Değiştir" OnClick="Button3_Click" />                    
                     <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
                 </td>
             </tr>            

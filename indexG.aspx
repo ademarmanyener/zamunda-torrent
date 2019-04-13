@@ -8,6 +8,11 @@
 	<title>Zamunda Torrent - Oyun, dizi, film...</title>
 	<link rel="shortcut icon" href="Image/site/logo.jpg">
 	<link rel="stylesheet" type="text/css" href="Css/style.css">
+    <style>
+        .button1 {
+            width: 100%;
+        }
+    </style>
     </head>
 <body>
     <form id="form1" runat="server">
@@ -26,6 +31,9 @@
                         </td>
                         <td>
                             <asp:Button CssClass="button1" ID="Button5" runat="server" Text="Film" OnClick="Button5_Click" />
+                        </td>
+                        <td>
+                            <asp:Button CssClass="button1" ID="Button6" runat="server" Text="Benim Eklediklerim" OnClick="Button6_Click" />
                         </td>
                     </tr>
                 </table>

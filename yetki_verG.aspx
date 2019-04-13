@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="torrent_ekleG.aspx.cs" Inherits="index" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="yetki_verG.aspx.cs" Inherits="index" %>
 
 <!DOCTYPE html>
 
@@ -19,7 +19,7 @@
         .auto-style4 {
             height: 29px;
         }
-    </style>
+        </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -52,52 +52,30 @@
 	<div id="container" >
         <table style="width: 100%; height: 100%; background-color: black; color: white; padding-bottom: 5px; padding-left: 5px; margin-bottom: 25px;">
             <tr>
-                <td style="text-align: center;" colspan="2">= Torrent Ekle =</td>
+                <td style="text-align: center;" colspan="2">= Yetki Ver =</td>
             </tr>
             <tr>
-                <td class="auto-style2">Torrent ID: </td>
+                <td class="auto-style2">Yetki Verilecek Kişi:</td>
                 <td>
                     <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
                 </td>
             </tr>
             <tr>
-                <td class="auto-style2">Torrent Adı: </td>
+                <td class="auto-style2">Verilecek Yetki:</td>
                 <td>
                     <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
                 </td>
             </tr>
             <tr>
-                <td class="auto-style2">Torrent Bilgisi: </td>
+                <td class="auto-style2">Şifreniz:</td>
                 <td>
-                    <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style2">Torrent Türü: </td>
-                <td>
-                    <asp:DropDownList ID="DropDownList1" runat="server" Width="129px">
-                        <asp:ListItem>Oyun</asp:ListItem>
-                        <asp:ListItem>Dizi</asp:ListItem>
-                        <asp:ListItem>Film</asp:ListItem>
-                    </asp:DropDownList>
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style2">Torrent Resmi: </td>
-                <td>
-                    <asp:FileUpload ID="FileUpload1" runat="server" />
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style2">Torrent Dosyası: </td>
-                <td>
-                    <asp:FileUpload ID="FileUpload2" runat="server" />
+                    <asp:TextBox ID="TextBox3" runat="server" TextMode="Password"></asp:TextBox>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style3">&nbsp;</td>
                 <td class="auto-style4">
-                    <asp:Button ID="Button3" CssClass="button2" runat="server" Text="Ekle" OnClick="Button3_Click" />                    
+                    <asp:Button ID="Button3" CssClass="button2" runat="server" Text="Yetki Ver" OnClick="Button3_Click" />                    
                     <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
                 </td>
             </tr>            

@@ -14,8 +14,9 @@ public partial class index : System.Web.UI.Page
         OleDbDataReader reader = cmd.ExecuteReader();
         while (reader.Read())
         {
-            Label3.Text = "Kullanıcı Adınız: " + reader["kullanici_adi"].ToString();
-            Label4.Text = "Üye Olma Tarihiniz: " + reader["uye_olma_tarihi"].ToString();
+            Label3.Text = "Kullanıcı Adınız: " + reader["kullanici_adi"].ToString() + ".";
+            Label4.Text = "Üye Olma Tarihiniz: " + reader["uye_olma_tarihi"].ToString() + ".";
+            Label8.Text = "Yetkiniz: " + reader["yetki"].ToString() + ".";
             if (reader["avatar"].ToString() == "none.jpg")
             {
                 //Image1.ImageUrl = "~/Image/site/logo.jpg";
@@ -25,6 +26,21 @@ public partial class index : System.Web.UI.Page
             {
                 Image1.ImageUrl = "~/Image/avatar/" + reader["avatar"].ToString();
                 Image2.ImageUrl = "~/Image/avatar/" + reader["avatar"].ToString();
+            }
+
+            if (reader["yetki"].ToString() == "admin")
+            {
+                Button3.Visible = true;
+                Button8.Visible = true;
+                Button4.Visible = true;
+                Button10.Visible = true;
+            }
+            else
+            {
+                Button3.Visible = false;
+                Button8.Visible = false;
+                Button4.Visible = false;
+                Button10.Visible = false;
             }
         }
         cnn.Close();
@@ -77,7 +93,7 @@ public partial class index : System.Web.UI.Page
                 cmdUpdate.ExecuteNonQuery();
             }
         }
-        Label7.ForeColor = System.Drawing.Color.Green;
+        Label7.ForeColor = System.Drawing.Color.Lime;
         Label7.Text = "Avatar silindi.";
         cnn.Close();
     }
@@ -91,7 +107,7 @@ public partial class index : System.Web.UI.Page
             if (avatarUzantisi == ".jpg")
             {
                 FileUpload1.SaveAs(Server.MapPath("~/Image/avatar/") + Session["kullanici_adi"].ToString() + ".jpg");
-                Label7.ForeColor = System.Drawing.Color.Green;
+                Label7.ForeColor = System.Drawing.Color.Lime;
                 Label7.Text = "Avatar yüklendi! (Görüntülemek için sayfayı yenileyin.)";
                 OleDbConnection cnn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Server.MapPath("~/App_Data/db.accdb"));
                 cnn.Open();
@@ -117,5 +133,23 @@ public partial class index : System.Web.UI.Page
     protected void Button7_Click(object sender, EventArgs e)
     {
         Response.Redirect("indexG.aspx");
+    }
+
+    // torrent düzenle
+    protected void Button8_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("torrent_duzenleG.aspx");
+    }
+
+    // şifre değiştir
+    protected void Button9_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("sifre_degistirG.aspx");
+    }
+
+    // yetki ver
+    protected void Button10_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("yetki_verG.aspx");
     }
 }

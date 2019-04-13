@@ -46,7 +46,8 @@
 			</div>
 		</div>
 	</div>
-    <div id="container" style="background-color: white; border: 1px solid black; font-size: 25px;">
+    <!-- <div id="container" style="background-color: white; border: 1px solid black; font-size: 25px;"> -->
+        <div id="container" style="color: white;">
         <asp:DataList ID="DataList1" style="margin: 0px;" runat="server" OnSelectedIndexChanged="DataList1_SelectedIndexChanged">
             <ItemTemplate>
                 <table style="width:100%;">

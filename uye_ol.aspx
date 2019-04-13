@@ -15,6 +15,17 @@
         .auto-style2 {
             width: 149px;
         }
+        .auto-style3 {
+            width: 38px;
+            height: 38px;
+        }
+        .auto-style4 {
+            width: 149px;
+            height: 38px;
+        }
+        .auto-style5 {
+            height: 38px;
+        }
     </style>
 </head>
 <body>
@@ -46,13 +57,13 @@
                 <td class="auto-style1">&nbsp;</td>
                 <td class="auto-style2">Şifre</td>
                 <td>
-                    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBox2" runat="server" TextMode="Password"></asp:TextBox>
                 </td>
             </tr>
             <tr>
-                <td class="auto-style1">&nbsp;</td>
-                <td class="auto-style2">&nbsp;</td>
-                <td>
+                <td class="auto-style3"></td>
+                <td class="auto-style4"></td>
+                <td class="auto-style5">
                     <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" CssClass="button1" Text="Üye Ol" />
                     <asp:Label ID="Label1" runat="server"></asp:Label>
                 </td>

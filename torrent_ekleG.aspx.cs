@@ -51,6 +51,7 @@ public partial class index : System.Web.UI.Page
     // ekle
     protected void Button3_Click(object sender, EventArgs e)
     {
+        /* = */
         if (FileUpload1.HasFile && FileUpload2.HasFile)
         {
             char control = 't';
@@ -79,7 +80,7 @@ public partial class index : System.Web.UI.Page
                     cmdInsert.Parameters.AddWithValue("@p1", TextBox1.Text);
                     cmdInsert.Parameters.AddWithValue("@p2", TextBox2.Text);
                     cmdInsert.Parameters.AddWithValue("@p3", TextBox3.Text);
-                    cmdInsert.Parameters.AddWithValue("@p4", TextBox4.Text);
+                    cmdInsert.Parameters.AddWithValue("@p4", DropDownList1.SelectedValue);
                     cmdInsert.Parameters.AddWithValue("@p5", TextBox1.Text + ".jpg");
                     cmdInsert.Parameters.AddWithValue("@p6", TextBox1.Text + ".torrent");
                     cmdInsert.Parameters.AddWithValue("@p7", Session["kullanici_adi"].ToString());
