@@ -43,6 +43,11 @@ public partial class index : System.Web.UI.Page
                 Button10.Visible = false;
             }
         }
+        /* footer */
+        OleDbCommand cmdLinks = new OleDbCommand("select * from links", cnn);
+        OleDbDataReader readerLinks = cmdLinks.ExecuteReader();
+        DataList2.DataSource = readerLinks;
+        DataList2.DataBind();
         cnn.Close();
     }
 
@@ -151,5 +156,11 @@ public partial class index : System.Web.UI.Page
     protected void Button10_Click(object sender, EventArgs e)
     {
         Response.Redirect("yetki_verG.aspx");
+    }
+
+    // site ayarları
+    protected void Button11_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("site_ayarlariG.aspx");
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="indexG.aspx.cs" Inherits="index" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="site_ayarlariG.aspx.cs" Inherits="index" %>
 
 <!DOCTYPE html>
 
@@ -8,36 +8,25 @@
 	<title>Zamunda Torrent - Oyun, dizi, film...</title>
 	<link rel="shortcut icon" href="Image/site/logo.jpg">
 	<link rel="stylesheet" type="text/css" href="Css/style.css">
-    <style>
-        .button1 {
-            width: 100%;
+    <style type="text/css">
+        .auto-style2 {
+            width: 200px;
+        }
+        .auto-style3 {
+            width: 200px;
+            height: 29px;
+        }
+        .auto-style4 {
+            height: 29px;
         }
     </style>
-    </head>
+</head>
 <body>
     <form id="form1" runat="server">
 	<div id="header">
 		<div id="header1">
 			<div id="logo"><a href="indexG.aspx"><img src="Image/site/logo.jpg"></a></div>
 			<div id="title"><h3><a href="indexG.aspx">Zamunda Torrent</a></h3></div>
-            <div id="category">
-                <table>
-                    <tr>
-                        <td>
-                            <asp:Button CssClass="button1" ID="Button3" runat="server" Text="Oyun" OnClick="Button3_Click1" />
-                        </td>
-                        <td>
-                            <asp:Button CssClass="button1" ID="Button4" runat="server" Text="Dizi" OnClick="Button4_Click1" />
-                        </td>
-                        <td>
-                            <asp:Button CssClass="button1" ID="Button5" runat="server" Text="Film" OnClick="Button5_Click" />
-                        </td>
-                        <td>
-                            <asp:Button CssClass="button1" ID="Button6" runat="server" Text="Benim Eklediklerim" OnClick="Button6_Click" />
-                        </td>
-                    </tr>
-                </table>
-            </div>
 			<div id="menu">
 				<table>
 					<tr>
@@ -60,28 +49,44 @@
 			</div>
 		</div>
 	</div>
-	<div id="container" >      
-	    <asp:DataList ID="DataList1" runat="server" RepeatColumns="3" RepeatDirection="Horizontal">
-            <ItemTemplate>
-                <table style="width:100%;">
-                    <tr>
-                        <td>
-                            <asp:ImageButton ID="ImageButton1" ImageUrl='<%# "Image/torrent/"+Eval("torrent_resmi").ToString() %>' PostBackUrl='<%# "~/torrent_sayfasiG.aspx?torrent_id="+Eval("torrent_id").ToString() %>' runat="server" Height="290px" Width="249px" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <asp:Label ID="Label1" style="font-size: 20px;" runat="server" Text='<%# Eval("torrent_adi").ToString() %>'></asp:Label>
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <hr />
-                        </td>
-                    </tr>
-                </table>
-            </ItemTemplate>
-        </asp:DataList>
+	<div id="container" >
+        <table style="width: 100%; height: 100%; background-color: black; color: white; padding-bottom: 5px; padding-left: 5px; margin-bottom: 25px;">
+            <tr>
+                <td style="text-align: center;" colspan="2">= Site Ayarları =</td>
+            </tr>
+            <tr>
+                <td class="auto-style2">Facebook:</td>
+                <td>
+                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style2">Twitter:</td>
+                <td>
+                    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style2">Instagram:</td>
+                <td>
+                    <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style2">Google Plus:</td>
+                <td>
+                    <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style3">&nbsp;</td>
+                <td class="auto-style4">
+                    <asp:Button ID="Button4" CssClass="button2" runat="server" Text="Varsayılan Ayarlar" OnClick="Button4_Click" />                    
+                    <asp:Button ID="Button3" CssClass="button2" runat="server" Text="Kaydet" OnClick="Button3_Click" />                    
+                    <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+                </td>
+            </tr>            
+        </table>
 	</div>
         <div id="footer0">        
      <asp:DataList ID="DataList2" runat="server">

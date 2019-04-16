@@ -10,7 +10,14 @@ public partial class kayit_ol : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        OleDbConnection cnn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Server.MapPath("~/App_Data/db.accdb"));
+        cnn.Open();
+        /* footer */
+        OleDbCommand cmdLinks = new OleDbCommand("select * from links", cnn);
+        OleDbDataReader readerLinks = cmdLinks.ExecuteReader();
+        DataList2.DataSource = readerLinks;
+        DataList2.DataBind();
+        cnn.Close();
     }
 
     // kayıt ol

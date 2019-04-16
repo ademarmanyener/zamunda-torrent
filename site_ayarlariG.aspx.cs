@@ -48,44 +48,28 @@ public partial class index : System.Web.UI.Page
         Response.Redirect("profilimG.aspx");
     }
 
+    // varsayılan ayarlar
     protected void Button4_Click(object sender, EventArgs e)
     {
-
+        TextBox1.Text = "https://www.facebook.com";
+        TextBox2.Text = "https://www.twitter.com";
+        TextBox3.Text = "https://www.instagram.com";
+        TextBox4.Text = "https://www.google.com";
     }
 
-    // düzenle
+    // kaydet
     protected void Button3_Click(object sender, EventArgs e)
     {
-        char control = 'f';
         OleDbConnection cnn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Server.MapPath("~/App_Data/db.accdb"));
         cnn.Open();
-        OleDbCommand cmd = new OleDbCommand("select * from kullanicilar",cnn);
-        OleDbDataReader reader = cmd.ExecuteReader();
-        while (reader.Read())
-        {
-            if (TextBox1.Text==reader["sifre"].ToString())
-            {
-                if (TextBox2.Text==TextBox3.Text)
-                {
-                    OleDbCommand cmdUpdate = new OleDbCommand("update kullanicilar set sifre=@p1 where kullanici_adi=@p2",cnn);
-                    cmdUpdate.Parameters.AddWithValue("@p1",TextBox2.Text);
-                    cmdUpdate.Parameters.AddWithValue("@p2",Session["kullanici_adi"].ToString());
-                    cmdUpdate.ExecuteNonQuery();
-                    Label3.ForeColor = System.Drawing.Color.Lime;
-                    Label3.Text = "Şifreniz başarıyla değişti!";
-                }
-                else
-                {
-                    Label3.ForeColor = System.Drawing.Color.Red;
-                    Label3.Text = "Şifrelerin uyuştuğundan emin olun.";
-                }
-            }
-            else
-            {
-                Label3.ForeColor = System.Drawing.Color.Red;
-                Label3.Text = "Doğru şifreyi girdiğinizden emin olun.";
-            }
-        }
+        OleDbCommand cmd = new OleDbCommand("update links set facebook=@p1, twitter=@p2, instagram=@p3, google_plus=@p4",cnn);
+        cmd.Parameters.AddWithValue("@p1", TextBox1.Text);
+        cmd.Parameters.AddWithValue("@p2", TextBox2.Text);
+        cmd.Parameters.AddWithValue("@p3", TextBox3.Text);
+        cmd.Parameters.AddWithValue("@p4", TextBox4.Text);
+        cmd.ExecuteNonQuery();
         cnn.Close();
+        Label3.ForeColor = System.Drawing.Color.Lime;
+        Label3.Text = "Ayarlar kaydedildi.";
     }
 }

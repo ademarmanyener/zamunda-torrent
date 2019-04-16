@@ -76,7 +76,7 @@
             <tr>
                 <td class="auto-style2">Torrent Bilgisi: </td>
                 <td>
-                    <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBox3" runat="server" Height="152px" TextMode="MultiLine" Width="562px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -110,6 +110,34 @@
             </tr>            
         </table>
 	</div>
+        <div id="footer0">        
+     <asp:DataList ID="DataList2" runat="server">
+       <ItemTemplate>
+        <div id="footer">
+            <div id="table1">
+            <table>
+                <tr>
+                    <td rowspan="2"><a href='<%# Eval("anasayfaG").ToString() %>'><img src="Image/site/logo.jpg"></a></td>
+                </tr>
+            </table>
+            </div>
+            <div id="baslik">
+                <h3><a href='<%# Eval("anasayfaG").ToString() %>'>Zamunda Torrent</a></h3>
+            </div>
+            <div id="table2">
+            <table>
+                <tr>
+                    <td rowspan="2"><a target="_blank" href='<%# Eval("facebook").ToString() %>'><img src="Image/site/social/facebook.png"></a></td>
+                    <td rowspan="2"><a target="_blank" href='<%# Eval("twitter").ToString() %>'><img src="Image/site/social/twitter.png"></a></td>
+                    <td rowspan="2"><a target="_blank" href='<%# Eval("instagram").ToString() %>'><img src="Image/site/social/instagram.png"></a></td>
+                    <td rowspan="2"><a target="_blank" href='<%# Eval("google_plus").ToString() %>'><img src="Image/site/social/google-plus.png"></a></td>
+                </tr>
+            </table>
+            </div>                
+        </div>  
+       </ItemTemplate>
+      </asp:DataList> 
+            </div>
     </form>
 </body>
 </html>

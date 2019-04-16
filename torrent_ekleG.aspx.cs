@@ -28,6 +28,11 @@ public partial class index : System.Web.UI.Page
                 Image1.ImageUrl = "~/Image/avatar/" + reader["avatar"].ToString();
             }
         }
+        /* footer */
+        OleDbCommand cmdLinks = new OleDbCommand("select * from links", cnn);
+        OleDbDataReader readerLinks = cmdLinks.ExecuteReader();
+        DataList2.DataSource = readerLinks;
+        DataList2.DataBind();
         cnn.Close();
     }
 

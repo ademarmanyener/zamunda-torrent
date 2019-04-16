@@ -28,6 +28,39 @@ public partial class index : System.Web.UI.Page
                 Image1.ImageUrl = "~/Image/avatar/" + reader["avatar"].ToString();
             }
         }
+        /* torrent sayfasından gelen datalar */
+        if (Request.QueryString["torrent_id"] == null)
+        {
+
+        }
+        else
+        {
+            OleDbCommand cmd2 = new OleDbCommand("select * from torrentler where torrent_id='" + Request.QueryString["torrent_id"].ToString() + "'", cnn);
+            OleDbDataReader reader2 = cmd2.ExecuteReader();
+            if (reader2.Read())
+            {
+                TextBox1.Text = reader2["torrent_id"].ToString();
+                TextBox2.Text = reader2["torrent_adi"].ToString();
+                TextBox3.Text = reader2["torrent_bilgisi"].ToString();
+                if (reader2["torrent_turu"].ToString() == "Oyun")
+                {
+                    DropDownList1.SelectedValue = "Oyun";
+                }
+                else if (reader2["torrent_turu"].ToString() == "Dizi")
+                {
+                    DropDownList1.SelectedValue = "Dizi";
+                }
+                else if (reader2["torrent_turu"].ToString() == "Film")
+                {
+                    DropDownList1.SelectedValue = "Film";
+                }
+            }
+        }
+        /* footer */
+        OleDbCommand cmdLinks = new OleDbCommand("select * from links", cnn);
+        OleDbDataReader readerLinks = cmdLinks.ExecuteReader();
+        DataList2.DataSource = readerLinks;
+        DataList2.DataBind();
         cnn.Close();
     }
 
@@ -68,44 +101,24 @@ public partial class index : System.Web.UI.Page
                     {
                         if (Session["kullanici_adi"].ToString() == reader["torrent_ekleyen_kisi"].ToString())
                         {
-                            if (FileUpload1.HasFile && FileUpload2.HasFile)
-                            {
-                                control = 't';
-                                File.Delete(Server.MapPath("~/Image/torrent/") + reader["torrent_resmi"].ToString());
-                                File.Delete(Server.MapPath("~/File/torrent/") + reader["torrent_dosyasi"].ToString());
-                                FileUpload1.SaveAs(Server.MapPath("~/Image/torrent/") + TextBox1.Text.ToString() + ".jpg");
-                                FileUpload2.SaveAs(Server.MapPath("~/File/torrent/") + TextBox1.Text.ToString() + ".torrent");
-                                string torrentResim = TextBox1.Text + ".jpg";
-                                string torrentDosya = TextBox1.Text + ".torrent";
-                                OleDbCommand cmdUpdate = new OleDbCommand("update torrentler set torrent_adi=@p1, torrent_bilgisi=@p2, torrent_turu=@p3, torrent_resmi=@p4, torrent_dosyasi=@p5, torrent_eklenme_tarihi=now where torrent_id=@p6", cnn);
-                                cmdUpdate.Parameters.AddWithValue("@p1", TextBox2.Text);
-                                cmdUpdate.Parameters.AddWithValue("@p2", TextBox3.Text);
-                                cmdUpdate.Parameters.AddWithValue("@p3", DropDownList1.SelectedValue);
-                                cmdUpdate.Parameters.AddWithValue("@p4", torrentResim);
-                                cmdUpdate.Parameters.AddWithValue("@p5", torrentDosya);
-                                cmdUpdate.Parameters.AddWithValue("@p6", TextBox1.Text);
-                                cmdUpdate.ExecuteNonQuery();
-                                Label3.ForeColor = System.Drawing.Color.Lime;
-                                Label3.Text = "Torrent başarıyla güncellendi.";
-                            }
-                            else
-                            {
-                                control = 't';
-                                File.Delete(Server.MapPath("~/Image/torrent/") + reader["torrent_resmi"].ToString());
-                                File.Delete(Server.MapPath("~/File/torrent/") + reader["torrent_dosyasi"].ToString());
-                                FileUpload1.SaveAs(Server.MapPath("~/Image/torrent/") + TextBox1.Text.ToString() + ".jpg");
-                                FileUpload2.SaveAs(Server.MapPath("~/File/torrent/") + TextBox1.Text.ToString() + ".torrent");
-                                string torrentResim = TextBox1.Text + ".jpg";
-                                string torrentDosya = TextBox1.Text + ".torrent";
-                                OleDbCommand cmdUpdate = new OleDbCommand("update torrentler set torrent_adi=@p1, torrent_bilgisi=@p2, torrent_turu=@p3, torrent_eklenme_tarihi=now where torrent_id=@p4", cnn);
-                                cmdUpdate.Parameters.AddWithValue("@p1", TextBox2.Text);
-                                cmdUpdate.Parameters.AddWithValue("@p2", TextBox3.Text);
-                                cmdUpdate.Parameters.AddWithValue("@p3", DropDownList1.SelectedValue);
-                                cmdUpdate.Parameters.AddWithValue("@p4", TextBox1.Text);
-                                cmdUpdate.ExecuteNonQuery();
-                                Label3.ForeColor = System.Drawing.Color.Lime;
-                                Label3.Text = "Torrent başarıyla güncellendi.";
-                            }
+                            control = 't';
+                            File.Delete(Server.MapPath("~/Image/torrent/") + reader["torrent_resmi"].ToString());
+                            File.Delete(Server.MapPath("~/File/torrent/") + reader["torrent_dosyasi"].ToString());
+                            FileUpload1.SaveAs(Server.MapPath("~/Image/torrent/") + TextBox1.Text.ToString() + ".jpg");
+                            FileUpload2.SaveAs(Server.MapPath("~/File/torrent/") + TextBox1.Text.ToString() + ".torrent");
+                            string torrentResim = TextBox1.Text + ".jpg";
+                            string torrentDosya = TextBox1.Text + ".torrent";
+                            OleDbCommand cmdUpdate = new OleDbCommand("update torrentler set torrent_adi=@p1, torrent_bilgisi=@p2, torrent_turu=@p3, torrent_resmi=@p4, torrent_dosyasi=@p5, torrent_eklenme_tarihi=now where torrent_id=@p6", cnn);
+                            cmdUpdate.Parameters.AddWithValue("@p1", TextBox2.Text);
+                            cmdUpdate.Parameters.AddWithValue("@p2", TextBox3.Text);
+                            cmdUpdate.Parameters.AddWithValue("@p3", DropDownList1.SelectedValue);
+                            cmdUpdate.Parameters.AddWithValue("@p4", torrentResim);
+                            cmdUpdate.Parameters.AddWithValue("@p5", torrentDosya);
+                            cmdUpdate.Parameters.AddWithValue("@p6", TextBox1.Text);
+                            cmdUpdate.ExecuteNonQuery();
+                            Response.Redirect("torrent_sayfasiG.aspx?torrent_id="+TextBox1.Text);
+                            //Label3.ForeColor = System.Drawing.Color.Lime;
+                            //Label3.Text = "Torrent başarıyla güncellendi.";
                         }
                         else
                         {
@@ -129,8 +142,42 @@ public partial class index : System.Web.UI.Page
         }
         else
         {
-            Label3.ForeColor = System.Drawing.Color.Red;
-            Label3.Text = "Önce dosya seçmelisiniz!";
+            char control = 'f';
+            OleDbConnection cnn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Server.MapPath("~/App_Data/db.accdb"));
+            cnn.Open();
+            OleDbCommand cmd = new OleDbCommand("select * from torrentler", cnn);
+            OleDbDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                if (TextBox1.Text==reader["torrent_id"].ToString())
+                {
+                    control = 't';
+                    //File.Delete(Server.MapPath("~/Image/torrent/") + reader["torrent_resmi"].ToString());
+                    //File.Delete(Server.MapPath("~/File/torrent/") + reader["torrent_dosyasi"].ToString());
+                    //FileUpload1.SaveAs(Server.MapPath("~/Image/torrent/") + TextBox1.Text.ToString() + ".jpg");
+                    //FileUpload2.SaveAs(Server.MapPath("~/File/torrent/") + TextBox1.Text.ToString() + ".torrent");
+                    //string torrentResim = TextBox1.Text + ".jpg";
+                    //string torrentDosya = TextBox1.Text + ".torrent";
+                    OleDbCommand cmdUpdate = new OleDbCommand("update torrentler set torrent_adi=@p1, torrent_bilgisi=@p2, torrent_turu=@p3, torrent_eklenme_tarihi=now where torrent_id=@p4", cnn);
+                    cmdUpdate.Parameters.AddWithValue("@p1", TextBox2.Text);
+                    cmdUpdate.Parameters.AddWithValue("@p2", TextBox3.Text);
+                    cmdUpdate.Parameters.AddWithValue("@p3", DropDownList1.SelectedValue);
+                    cmdUpdate.Parameters.AddWithValue("@p4", TextBox1.Text);
+                    cmdUpdate.ExecuteNonQuery();
+                    Response.Redirect("torrent_sayfasiG.aspx?torrent_id="+TextBox1.Text);
+                    //Label3.ForeColor = System.Drawing.Color.Lime;
+                    //Label3.Text = "Torrent başarıyla güncellendi.";
+                }
+            }
+            if (control == 'f')
+            {
+                Label3.ForeColor = System.Drawing.Color.Red;
+                Label3.Text = "Böyle bir kayıdınız bulunmamaktadır.";
+            }
+            cnn.Close();
+
+            //Label3.ForeColor = System.Drawing.Color.Red;
+            //Label3.Text = "Önce dosya seçmelisiniz!";
         }
         /* = */
     }
@@ -141,13 +188,13 @@ public partial class index : System.Web.UI.Page
         char control = 'f';
         OleDbConnection cnn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Server.MapPath("~/App_Data/db.accdb"));
         cnn.Open();
-        OleDbCommand cmd = new OleDbCommand("select * from torrentler",cnn);
+        OleDbCommand cmd = new OleDbCommand("select * from torrentler", cnn);
         OleDbDataReader reader = cmd.ExecuteReader();
         while (reader.Read())
         {
-            if (TextBox1.Text==reader["torrent_id"].ToString())
+            if (TextBox1.Text == reader["torrent_id"].ToString())
             {
-                if (Session["kullanici_adi"].ToString()==reader["torrent_ekleyen_kisi"].ToString())
+                if (Session["kullanici_adi"].ToString() == reader["torrent_ekleyen_kisi"].ToString())
                 {
                     control = 't';
                     TextBox2.Text = reader["torrent_adi"].ToString();

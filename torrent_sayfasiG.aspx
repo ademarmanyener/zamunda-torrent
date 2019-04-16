@@ -8,6 +8,12 @@
 	<title>Zamunda Torrent - Oyun, dizi, film...</title>
 	<link rel="shortcut icon" href="Image/site/logo.jpg">
 	<link rel="stylesheet" type="text/css" href="Css/style.css">
+    <style type="text/css">
+        #Button4 {
+            width: 250px;
+            height: 150px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -102,8 +108,39 @@
                     </tr>
                 </table>
             </ItemTemplate>
-        </asp:DataList>
+        </asp:DataList>          
+            <asp:Button CssClass="button2" ID="Button4" runat="server" Text="Güncelle" Height="65px" Width="133px" OnClick="Button4_Click" />
+            <asp:Button CssClass="button2" ID="Button5" runat="server" Text="Sil" Height="65px" Width="133px" OnClick="Button5_Click" />
+            <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
         </div>
     </form>
+        <div id="footer0">        
+     <asp:DataList ID="DataList2" runat="server">
+       <ItemTemplate>
+        <div id="footer">
+            <div id="table1">
+            <table>
+                <tr>
+                    <td rowspan="2"><a href='<%# Eval("anasayfaG").ToString() %>'><img src="Image/site/logo.jpg"></a></td>
+                </tr>
+            </table>
+            </div>
+            <div id="baslik">
+                <h3><a href='<%# Eval("anasayfaG").ToString() %>'>Zamunda Torrent</a></h3>
+            </div>
+            <div id="table2">
+            <table>
+                <tr>
+                    <td rowspan="2"><a target="_blank" href='<%# Eval("facebook").ToString() %>'><img src="Image/site/social/facebook.png"></a></td>
+                    <td rowspan="2"><a target="_blank" href='<%# Eval("twitter").ToString() %>'><img src="Image/site/social/twitter.png"></a></td>
+                    <td rowspan="2"><a target="_blank" href='<%# Eval("instagram").ToString() %>'><img src="Image/site/social/instagram.png"></a></td>
+                    <td rowspan="2"><a target="_blank" href='<%# Eval("google_plus").ToString() %>'><img src="Image/site/social/google-plus.png"></a></td>
+                </tr>
+            </table>
+            </div>                
+        </div>  
+       </ItemTemplate>
+      </asp:DataList> 
+            </div>
 </body>
 </html>

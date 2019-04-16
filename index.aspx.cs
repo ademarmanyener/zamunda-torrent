@@ -26,6 +26,11 @@ public partial class index : System.Web.UI.Page
         OleDbDataReader reader = cmd.ExecuteReader();
         DataList1.DataSource = reader;
         DataList1.DataBind();
+        /* footer */
+        OleDbCommand cmdLinks = new OleDbCommand("select * from links",cnn);
+        OleDbDataReader readerLinks = cmdLinks.ExecuteReader();
+        DataList2.DataSource = readerLinks;
+        DataList2.DataBind();
         cnn.Close();
     }
 

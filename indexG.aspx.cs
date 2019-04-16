@@ -31,6 +31,11 @@ public partial class index : System.Web.UI.Page
                 Image1.ImageUrl = "~/Image/avatar/" + reader2["avatar"].ToString();
             }
         }
+        /* footer */
+        OleDbCommand cmdLinks = new OleDbCommand("select * from links", cnn);
+        OleDbDataReader readerLinks = cmdLinks.ExecuteReader();
+        DataList2.DataSource = readerLinks;
+        DataList2.DataBind();
         cnn.Close();
     }
 
@@ -96,7 +101,7 @@ public partial class index : System.Web.UI.Page
     {
         OleDbConnection cnn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Server.MapPath("~/App_Data/db.accdb"));
         cnn.Open();
-        OleDbCommand cmd = new OleDbCommand("select * from torrentler where torrent_ekleyen_kisi='"+Session["kullanici_adi"].ToString()+"'",cnn);
+        OleDbCommand cmd = new OleDbCommand("select * from torrentler where torrent_ekleyen_kisi='"+Session["kullanici_adi"].ToString()+"' order by torrent_eklenme_tarihi desc",cnn);
         OleDbDataReader reader = cmd.ExecuteReader();
         DataList1.DataSource = reader;
         DataList1.DataBind();
